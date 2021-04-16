@@ -7,7 +7,12 @@
   \*****************************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // application code here:
+
+
+$(document).ready(function () {
+  console.log('JS up and running...');
+});
 
 /***/ }),
 

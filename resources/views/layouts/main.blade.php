@@ -32,4 +32,5 @@
             <p>&copy; Q2E Online-Agentur 2021</p>
         </footer>
     </body>
+    <script src="{{ asset('js/app.js') }}"></script>
 </html>
