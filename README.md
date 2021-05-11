@@ -61,12 +61,6 @@ You can now access the server at http://localhost:8000
     php artisan migrate
     php artisan serve
 
-## Database seeding
-
-**Populate the database with seed data with relationships which includes users, articles, comments, tags, favorites and follows. This can help you to quickly start testing the api or couple a frontend and start using it with ready content.**
-
-
-
 ----------
 
 # Testing API
