@@ -36,7 +36,15 @@ Route::get('/add_venue_form', [VenueController::class, 'add_venue_form'])->name(
 Route::get('/venue_delete/{id}',[VenueController::class, 'destroy']);
 Route::get('/venue_details/{id}',[VenueController::class, 'details']);
 
-// ->name('add_venue_form');
+
+Route::get('/add_event',[VenueController::class, 'add_event']);
+Route::post('/save_event',[VenueController::class, 'save_event']);
+
+
+Route::get('/event_list',[VenueController::class, 'event_list']);
+
+
+
 
 
 

@@ -46,54 +46,26 @@
 @endif
 
 <div class="col-md-12 row" style="padding: 50px;">
-    <h3 style="text-align:cneter;">Add Venue Form</h3>
-    <form action="{{url('/save_venue')}}" method='POST'>
+    <h3 style="text-align:cneter;">ADD EVENT FORM</h3>
+    <form action="{{url('/save_event')}}" method='POST'>
     @csrf
     <div class="row">
       <div class="col-6">
-        <input type="text" name="surname" class="form-control" placeholder="surname" aria-label="surname">
+        <input type="text" name="name" class="form-control" placeholder="Event name" aria-label="name">
       </div>
+     
+     
       <div class="col-6">
-        <input type="text" name="road" class="form-control" placeholder="road" aria-label="road">
-      </div>
-      <div class="col-6">
-        <input type="text" name="house_no" class="form-control" placeholder="house no" aria-label="house no">
-      </div>
-      <div class="col-6">
-        <input type="text" name="post_code" class="form-control" placeholder="post code" aria-label="post code">
-      </div>
-      <div class="col-6">
-        <input type="text" name="place" class="form-control" placeholder="place" aria-label="place">
-      </div>
-      <div class="col-6">
-        <select class="form-control" name="country" id="">
-        <option value="" disabled selected>Select Country</option>
-        <option value="Germany">D</option>
-        <option value="Austria">A</option>
-        <option value="Switzerland">CH</option>
+        <select class="form-control" name="place" id="">
+        <option value="" disabled selected>Select place</option>
+
+        @foreach ($venue_list as $venue)
+
+        <option value="{{$venue->id}}">{{$venue->surname}}</option>
+            
+        @endforeach
+       
         </select>
-      </div>
-      <div class="col-6">
-        <input type="text" name="phone" class="form-control" placeholder="phone" aria-label="phone">
-      </div>
-      <div class="col-6">
-        <input type="email" name="email" class="form-control" placeholder="email" aria-label="email">
-      </div>
-      <div class="col-6">
-        <input type="text" name="website" class="form-control" placeholder="website" aria-label="website">
-      </div>
-      <div class="col-6">
-        <input type="text" name="owner" class="form-control" placeholder="owner" aria-label="owner">
-      </div>
-      <div class="col-6">
-        <select class="form-control" name="bookable" id="">
-        <option value="" disabled selected>Select Bookable or Not</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-        </select>
-      </div>
-      <div class="col-6">
-        <textarea name="map" id="" cols="30" rows="2" placeholder="place Map"> </textarea>
       </div>
       <div class="col-12">
         <button type="submit" class="btn btn-success">Save</button>

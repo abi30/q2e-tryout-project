@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Venue;
 
+use DB;
+
 
 class VenueController extends Controller
 {
@@ -98,6 +100,46 @@ public function edit_venue($id){
 }
 
 
+
+
+
+
+
+
+// events------------------
+
+
+public function add_event(){
+
+    $venue_list= Venue::all();
+    return view('add_event',compact('venue_list'));
+
+    
+}
+
+
+public function save_event(Request $request){
+
+    DB::table('events')->insert([
+        'name'  =>$request->name,
+        'venue_id' => $request->place
+    ]);
+
+    session()->put('msg','save successfully');
+    return redirect('event_list');
+    
+}
+public function event_list(){
+
+    
+    $event_list = DB::table('events')
+    ->join('venues', 'events.venue_id', '=', 'venues.id')
+    ->select('*')
+    ->get();
+    // dd($event_list);
+    return view('event_list',compact('event_list'));
+
+ }
 
 
 }

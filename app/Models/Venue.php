@@ -9,4 +9,5 @@ class Venue extends Model
 {
     use HasFactory;
     protected $guarded = "";
+    
 }
