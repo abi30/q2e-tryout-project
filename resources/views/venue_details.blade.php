@@ -49,16 +49,48 @@
     <body class="antialiased">
       <div class="container">
 
-        <div class="col-md-12 row" style="background: #99ffe3;">
-            <div class="col-md-12">
-            <nav class="navbar navbar-expand-lg navbar-light ">
-                    <div class="container-fluid">
-                    <a class="navbar-brand" href="/"><b>Event Venue</b></a>
-                
-                    </div>
-                </nav>
-            </div>      
-    </div>
+        
+        <nav class="navbar navbar-expand-lg navbar-light badge-warning mt-3">
+          <a class="navbar-brand" href="/"><img src="https://data.q2e.at/cdn/images/logo-with-slogan-375x115.png"
+                       alt="Logo von Q2E Online-Agentur"
+                       height="36"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+         
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('venue_list')}}">{{__('venue_details.venues')}}</a>
+      
+            
+            </li>
+            <li class="nav-item">
+              <a class="nav-link "href="{{url('event_list')}}">{{__('venue_details.events')}}</a>
+            </li>
+          </ul>
+
+
+
+
+          <div class="col-md-4">
+                  <div class="dropdown">
+                      <button class="btn btn-warning dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          {{__('venue_details.language')}}
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="{{url('/switch/de')}}">Germany</a>
+                          <a class="dropdown-item" href="{{url('/switch/en')}}">English</a>
+                      </div>
+                      </div>
+                  </div>
+
+
+
+          
+        </div>
+      </nav>
     
 
 
@@ -66,27 +98,42 @@
 
  <div class="col text-center d-flex justify-content-center">
    <div class="card shadow-lg p-1 mb-5 bg-body rounded rounded-3 m-5 " style="width: 25rem;">
-    {{-- @foreach($venue_list as $key => $vl) --}}
-
+    
     <img class="img-thumbnail own_pic" src="{{$venue_list->website}}">
-        <div class="card-body">
-            <h4 class="card-title">Location :{{$venue_list->surname}}</h4>
-            <p class="card-text">description :{{$venue_list->road}}</p>
-            <h4 class="card-title">Offer Price :{{$venue_list->place}}</h4>
-            </div>
+        
           
+
+            <div class="card-body">
+            <h5 class="card-title">{{__('venue_details.location')}}:<span>{{$venue_list->surname}}</span> </h5>
+            <h5 class="card-text">{{__('venue_details.address')}}:<span>{{$venue_list->road}} {{$venue_list->house_no}}</span></h5>
+            <h4 class="card-title">{{__('venue_details.zip')}} :<span>{{$venue_list->place}}-{{$venue_list->post_code}}</span></h4>
+            <h5 class="card-text">{{__('venue_details.contactE')}} :<span>{{$venue_list->email}}</span></h5>
+            <h5 class="card-text">{{__('venue_details.contactP')}} :<span>{{$venue_list->phone}}</span></h5>
+            <h6 class="card-text">{{__('venue_details.bookable')}} :<span>{{$venue_list->bookable}}</span></h6>
+            <h4 class="card-text">{{__('venue_details.country')}} :<span>{{$venue_list->country}}</span></h4>
+            <h5 class="card-text">{{__('venue_details.owner')}} : <span>{{$venue_list->owner}}</span></h5>
+            </div>
+
+
+
+
+
+
+
+
+
             
             <div class="card-footer text-center">
             <div class="map">
                 <iframe src="{{$venue_list->map}}" width="550" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                {{-- {{$venue_list->map}} --}}
+                
 
             </div>
-            <a class="btn btn-warning text-white" href ="/home">back Home</a>
+            <a class="btn btn-warning text-white" href ="/home">{{__('venue_details.backH')}}</a>
             </div>
         </div>
 
-        {{-- @endforeach --}}
+
      </div>
 
     </div>

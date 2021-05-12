@@ -22,83 +22,67 @@
           .own_pic{
           height: 13rem;
         }
-        @media  only screen and (max-width:480px) {
-          
-          .own_pic{
+         @media only screen and (max-width:480px) {  
+         .own_pic{
             height:70%;
           }
         </style>
+
     </head>
-    <body class="antialiased">
+    <body>
       <div class="container">
 
 
+
+
+<nav class="navbar navbar-expand-lg navbar-light badge-warning mt-3">
+  <a class="navbar-brand" href="/"><img src="https://data.q2e.at/cdn/images/logo-with-slogan-375x115.png"
+                 alt="Logo von Q2E Online-Agentur"
+                 height="36"/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('venue_list')}}"> {{__('homepage.venues')}}</a>
+
+      
+      </li>
+      <li class="nav-item">
+        <a class="nav-link "href="{{url('event_list')}}"> {{__('homepage.events')}}</a>
+      </li>
+    </ul>
+
+
+
+            <div class="col-md-4">
+                  <div class="dropdown">
+                      <button class="btn btn-warning dropdown-toggle btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          {{__('homepage.language')}}
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="{{url('/switch/de')}}">Germany</a>
+                          <a class="dropdown-item" href="{{url('/switch/en')}}">English</a>
+                      </div>
+                      </div>
+                  </div>
     
-      <div class="col-md-12 row" style="background: #99ffe3;">
-        <div class="col-md-6">
-        <nav class="navbar navbar-expand-lg navbar-light ">
-                <div class="container-fluid">
-                <a class="navbar-brand" href="#"><b>Event Venue</b></a>
-            
-                </div>
-            </nav>
-        </div>  
+  </div>
+</nav>
 
-          <div class="col-md-6" style="text-align: right; padding-top: 10px;">
-            <ul>
-                <li style="padding: 8px;float: left;color: black; text-align: center;list-style:none; text-decoration: none;"><a href="{{route('add_venue_form')}}">Add Venue</a></li>
-                <li style="padding: 8px;float: left;color: black; text-align: center;list-style:none; text-decoration: none;"><a href="{{route('venue_list')}}">Venue List</a></li>
-            </ul>
-        </div>    
-</div>
 
-<div class="col-md-12 row">
+
+    
+     
 
 
 
 
 
-{{-- <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Vanue Name</th>
-      <th scope="col">Place</th>
-      <th scope="col">Country</th>
-      <th scope="col">Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach($venue_list as $key => $vl)
-    <tr>
-      <th scope="row">{{ ($key+1)}}</th>
-      <td>{{$vl->surname}}</td>
-      <td>{{$vl->place}}</td>
-      <td>{{$vl->country}}</td>
-      <td><a href="venue_details/{{$vl->id}}" class="btn btn-primary">Details</a>
-      <a href="venue" class="btn btn-warning">edit</a>
-      <a href="venue_delete/{{$vl->id}}" class="btn btn-danger">delete</a></td>
-    </tr>
-    <tr>
- @endforeach
- <tr>
-   <th scope="row">1</th>
-      <td>Cox Bazar Sea</td>
-      <td>Cox Bazar</td>
-      <td>Bangladesh</td>
-      <td><a href="" class="btn btn-primary">Details View</a></td>
-    </tr>
-    <tr> 
-    </tbody>
-  </table>
-   --}}
-  
 
-
-
-
-
-  <div class="container manageProduct w-100" >   
+  <div class="container manageProduct w-100">   
      
 
     <div class='m-3'>
@@ -109,19 +93,24 @@
 
 
 
-  <div class="col own_col text-center mt-4">
+  <div class="col own_col mt-4">
     <div class="card shadow-lg p-1 mb-5 bg-body rounded w-100 h-100 rounded-3 " style="width: 18rem;">
     <img class="img-thumbnail own_pic" src="{{$vl->website}}">
         <div class="card-body">
-            <h4 class="card-title">Location :{{$vl->surname}} </h4>
-            <p class="card-text">description :{{$vl->surname}}</p>
-            <h4 class="card-title">Offer Price :{{$vl->surname}}</h4>
+            <h5 class="card-title">{{__('homepage.location')}}:<span>{{$vl->surname}}</span> </h5>
+            <h5 class="card-text">{{__('homepage.address')}}:<span>{{$vl->road}} {{$vl->house_no}}</span></h5>
+            <h4 class="card-title">{{__('homepage.zip')}} :<span>{{$vl->place}}-{{$vl->post_code}}</span></h4>
+            <h5 class="card-text">{{__('homepage.contactE')}} :<span>{{$vl->email}}</span></h5>
+            <h5 class="card-text">{{__('homepage.contactP')}} :<span>{{$vl->phone}}</span></h5>
+            <h6 class="card-text">{{__('homepage.bookable')}} :<span>{{$vl->bookable}}</span></h6>
+            <h4 class="card-text">{{__('homepage.country')}} :<span>{{$vl->country}}</span></h4>
+            <h5 class="card-text">{{__('homepage.owner')}} : <span>{{$vl->owner}}</span></h5>
             </div>
           
             
             <div class="card-footer text-center">
             
-            <a class="btn btn-warning text-white" href ="venue_details/{{$vl->id}}">Details</a>
+            <a class="btn btn-warning text-white" href ="venue_details/{{$vl->id}}">{{__('homepage.details')}}</a>
             </div>
         </div>
      </div>
@@ -132,8 +121,6 @@
     </div>
   </div>
 </div>
-</div>
-
 </div>
     </body>
 </html>

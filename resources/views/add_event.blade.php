@@ -24,18 +24,33 @@
 
         <div class="container">
 
-<div class="col-md-12 row" style="background: #99ffe3;">
-        <div class="col-md-12">
-        <nav class="navbar navbar-expand-lg navbar-light ">
-                <div class="container-fluid">
-                <a class="navbar-brand" href="/"><b>Event Venue</b></a>
-                <li style="padding: 8px;float: left;color: black; text-align: center;list-style:none; text-decoration: none;"><a href="{{route('venue_list')}}">Venue List</a></li>
-                </div>
+            <nav class="navbar navbar-expand-lg navbar-light badge-warning mt-3">
+                <a class="navbar-brand" href="/"><img src="https://data.q2e.at/cdn/images/logo-with-slogan-375x115.png"
+                             alt="Logo von Q2E Online-Agentur"
+                             height="36"/></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                 
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('venue_list')}}">Venue list</a>
+            
+                  
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link "href="{{url('event_list')}}">Event list</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link "href="{{url('add_event')}}">Add Event</a>
+                  </li>
+                </ul>
+                
+              </div>
             </nav>
-        </div>
-
-      
-</div>
+            
 
 @if($message=Session::get('success'))
 <div style="margin-left: -15px;" class="alert alert-success col-md-12 ">

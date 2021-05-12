@@ -74,4 +74,9 @@ The api can now be accessed at
     http://localhost:8000/api/venue_list
 
 
-
+# Resource 
+ 
+ 
+- https://www.youtube.com/
+- https://laravel.com/docs/8.x
+- https://stackoverflow.com/

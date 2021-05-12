@@ -19,45 +19,59 @@
                 font-family: 'Nunito', sans-serif;
             }
             .col-6{
-                padding:10px;
+                /* padding:10px; */
             }
         </style>
     </head>
-    <body class="antialiased">
+    <body>
 
-<div class="col-md-12 row" style="background: #99ffe3;">
-        <div class="col-md-6">
-        <nav class="navbar navbar-expand-lg navbar-light ">
-                <div class="container-fluid">
-                <a class="navbar-brand" href="/"><b>Event Venue</b></a>
+
+      <div class="container">
+
+
+
+        <nav class="navbar navbar-expand-lg navbar-light badge-warning mt-3">
+          <a class="navbar-brand" href="/"><img src="https://data.q2e.at/cdn/images/logo-with-slogan-375x115.png"
+                       alt="Logo von Q2E Online-Agentur"
+                       height="36"/></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('add_venue_form')}}">Add Venue</a>
+      
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{route('venue_list')}}">Venue list</a>
+      
             
-                </div>
-            </nav>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link "href="{{url('event_list')}}">Event list</a>
+            </li>
+          </ul>
+          
         </div>
-
-        <div class="col-md-6" style="text-align: right; padding-top: 10px;">
-            <ul>
-                <li style="padding: 8px;float: left;color: black; text-align: center;list-style:none; text-decoration: none;"><a href="{{route('add_venue_form')}}">Add Venue</a></li>
-                <li style="padding: 8px;float: left;color: black; text-align: center;list-style:none; text-decoration: none;"><a href="{{route('venue_list')}}">Venue List</a></li>
-            </ul>
-        </div>
-</div>
+      </nav>
 
 
 
-<div class="col-md-12 row">
+<div class=" table-responsive justify-content-center ">
   @if($message=Session::get('msg'))
-<div class="container alert alert-success">
+  <div class="container alert alert-success">
 
   <p>{{$message}}</p>
   @php
     Session::put('msg',""); 
   @endphp
 </div>
-    
+
 @endif
 
-<table class="table">
+<table class="table table-striped w-100">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -77,13 +91,14 @@
       <td>{{$vl->country}}</td>
       <td><a href="venue_details/{{$vl->id}}" class="btn btn-primary">Details</a>
       
-      <a href="edit_venue/{{$vl->id}}" class="btn btn-warning">edit</a>
+        <a href="edit_venue/{{$vl->id}}" class="btn btn-warning">edit</a>
       <a href="venue_delete/{{$vl->id}}" class="btn btn-danger">delete</a></td>
     </tr>
     <tr>
- @endforeach
-  </tbody>
-</table>
+      @endforeach
+    </tbody>
+  </table>
 </div>
-    </body>
+</div>
+</body>
 </html>
