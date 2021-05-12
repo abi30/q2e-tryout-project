@@ -26,6 +26,7 @@ Route::get('/home', [VenueController::class, 'index']);
 
 
 
+
 Route::post('/update_venue', [VenueController::class, 'update_venue']);
 Route::get('/edit_venue/{id}', [VenueController::class, 'edit_venue']);
 

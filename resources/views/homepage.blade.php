@@ -74,14 +74,6 @@
 
 
 
-    
-     
-
-
-
-
-
-
   <div class="container manageProduct w-100">   
      
 

@@ -85,6 +85,8 @@ public function update_venue(Request $request){
         
 }
 
+
+                // API//
 public function apilist(){
     return Venue::all();
 }
